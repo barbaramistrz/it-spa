@@ -1,0 +1,43 @@
+
+body{
+    background-image: url(https://images.unsplash.com/photo-1517646450441-a0faf4152caf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1634&q=80);
+}
+
+h1{
+    text-align: center;
+    padding: 10px;
+}
+
+.icon{
+    max-width: 60px;
+    
+}
+
+.caption {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+.list-group-item.active{
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+#nav-tabContent{
+    padding:30px; 
+    font-size: 1.1rem;
+    font-weight:400;
+    background-color:hsla(100, 100%, 100%, 0.6);
+    ;
+
+}
+
+#cart-icon{
+    max-width: 35px;
+    align-self: right;
+    margin-right: 20px;
+}

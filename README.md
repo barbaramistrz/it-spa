@@ -6,10 +6,10 @@ Aplikacja powinna umożliwiać:
 
 - Przeglądanie dostępnych zabiegów
 - Dodawanie wybranych zabiegów do koszyka
-- Wybór daty przyjazdu i wyjazdu oraz pokoju  
+- Wybór daty przyjazdu i wyjazdu oraz pokoju INPUT TYPE DATE 
 - Rejestrację użytkownika (opcjonalnie)
 - Logowanie użytkownika (opcjonalnie)
-- Podsumowanie składanego zamówienia
+- Podsumowanie składanego zamówienia 
 
 ## Booking
 

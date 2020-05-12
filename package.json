@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start:db": "json-server --watch database.json",
     "start:app": "parcel ./index.html --open"
@@ -16,7 +17,9 @@
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "bootstrap": "^4.4.1"
+
   }
 }

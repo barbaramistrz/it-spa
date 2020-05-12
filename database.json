@@ -3,28 +3,32 @@
   "rooms": [
     {
       "id": 1,
-      "name": "Pokój unarny",
+      "name": "Lovely Single",
+      "photo": "https://images.unsplash.com/photo-1584116831190-7a5b2765a30a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 1,
       "guests": 1,
       "price": 170
     },
     {
       "id": 2,
-      "name": "Pokój binarny",
+      "name": "Romantic Double",
+      "photo": "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 1,
       "guests": 2,
       "price": 240
     },
     {
       "id": 3,
-      "name": "Pokój trójkowy",
+      "name": "Fun Triple",
+      "photo": "https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 2,
       "guests": 3,
       "price": 290
     },
     {
       "id": 4,
-      "name": "Pokój czwórkowy",
+      "name": "Luxurious Quad",
+      "photo": "https://images.unsplash.com/photo-1519449556851-5720b33024e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 2,
       "guests": 4,
       "price": 340
@@ -33,53 +37,59 @@
   "treatments": [
     {
       "id": 1,
-      "name": "Masaż rozgrzanym monitorem",
-      "area": "back",
+      "name": "Diamond Dust Scrub",
+      "description": "Give us a piece of your most precious diamond jewellery, and we'll destroy it for you! But you'll get a nice scrub out of it, so no worries. Very luxurious.",
+      "area": "body",
       "time": 30,
-      "price": 80
+      "price": 800
     },
     {
       "id": 2,
-      "name": "Biczowanie kablem od myszy",
-      "area": "back",
+      "name": "Cryo-Repairing Lifting Facial",
+      "description": "We're not sure what this one means exactly, but we'll wing it. We'll put something cold on your face, maybe some ice cubes? That's the cryo part, probably. Then pull your skin up? Does that sound right? No idea. Give it a try!",
+      "area": "face",
       "time": 20,
       "price": 70
     },
     {
       "id": 3,
-      "name": "Peeling odłamkami płyty CD",
-      "area": "face",
+      "name": "Warm Candle Massage",
+      "description": "Ouch, but okay. We'll pour some warm (not hot!) candle wax on your body and massage it. Sounds a little bit dangerous, but maybe that's the appeal? Then we'll leave you with the wax stuck to your skin, so you can feel like you're at Madame Tussauds. Fun!",
+      "area": "body",
       "time": 15,
       "price": 50
     },
     {
       "id": 4,
-      "name": "Pedicure woskiem z USB",
-      "area": "legs",
+      "name": "Deep Tissue Massage",
+      "area": "back",
+      "description": "We know you're tense and you carry all your worries in your shoulders. We'll take care of that with this extreme deep tissue massage! It'll probably hurt, but you'll feel like a baby afterwards. You'll probably sleep for like a day too. Relaxation all the way!",
       "time": 25,
       "price": 100
     },
     {
       "id": 5,
-      "name": "Manicure analogowo-cyfrowy",
+      "name": "Manicure",
       "area": "hands",
+      "description": "Classic. We'll do all the magic on your hands that ends with a nice coat of nail polish. No idea what comes first, but we'll figure it out. We can only do super long nails, so it'll be funny when you use the keybord. Clickety-clack.",
       "time": 45,
       "price": 150
     },
     {
       "id": 6,
-      "name": "Kąpiel w gorącej kawie",
-      "area": "body",
+      "name": "Pedicure",
+      "description": "Manicure for your feet! Nothing else to say, except that we will judge your nasty weird toenails. Ooh, and maybe we'll have some tiny fish eating your cuticles? That's a thing, right?",
+      "area": "feet",
       "time": 60,
       "price": 200
     },
     {
       "id": 7,
-      "name": "Depilacja dyskiem twardym",
+      "name": "Detox Body Wrap",
+      "description": "We'll wrap you up, like a yummy burrito! Not sure what we mean by the detox part, but it sure sounds cozy! And probably good for your skin too.",
       "area": "body",
       "time": 45,
       "price": 120
     }
   ]
 }
- 
