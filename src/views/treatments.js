@@ -1,5 +1,5 @@
 import $ from "jquery";
-import Cart from "./../cart/cart";
+import { book } from "./bookings";
 
 export const treatments = () => {
   let roomObj = "";
@@ -14,13 +14,12 @@ export const treatments = () => {
       console.log(error);
     });
 
-    const treatmentsCart = [];
-
-
   function main(treatments) {
     for (let i = 0; i < treatments.length; i++) {
       $("#list-tab").append(
-        $(`<a class="list-group-item list-group-item-action" id="list-${treatments[i]["id"]}-list" data-toggle="list" role="tab" href="#list-${treatments[i]["id"]}" aria-controls="${treatments[i]["id"]}">${treatments[i]["name"]}</a>`)
+        $(
+          `<a class="list-group-item list-group-item-action" id="list-${treatments[i]["id"]}-list" data-toggle="list" role="tab" href="#list-${treatments[i]["id"]}" aria-controls="${treatments[i]["id"]}">${treatments[i]["name"]}</a>`
+        )
       );
       $("#nav-tabContent").append(
         $(`<div class="tab-pane fade show rounded" id="list-${treatments[i]["id"]}" role="tabpanel" aria-labelledby="list-${treatments[i]["id"]}-list">
@@ -29,29 +28,31 @@ export const treatments = () => {
         <p>Price: ${treatments[i]["price"]} euros</p>
         <p>Time: ${treatments[i]["time"]} minutes</p>
         <br>
-        <button class="btn btn-secondary btn-lg book-btn" id='treatmentBtn${treatments[i]["id"]}'}>Book</button>
+        <div id="bookT-${treatments[i]["id"]}">
+        <button class="btn btn-secondary btn-lg book-btn" id='treatmentBtn${treatments[i]["id"]}'>Book</button>
+        <div>
         </div>`)
       );
 
       $(`#list-1-list`).addClass("active ");
       $(`#list-1`).addClass("active ");
+
       
-      $(`#list-${treatments[i]["id"]}-list`).on('click', function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-      })
 
+      $(`#list-${treatments[i]["id"]}-list`).on("click", function (e) {
+        e.preventDefault();
+        $(this).tab("show");
+      });
 
+      $(`#treatmentBtn${treatments[i]["id"]}`).on("click", function (e) {
+        e.preventDefault();
+        book(treatments[i]["name"], treatments[i]["price"]);
+        // $(`#bookT-${treatments[i]["id"]}`).append($(`<img src='https://image.flaticon.com/icons/svg/2649/2649220.svg' href="/bookings" class="img-responsive icon">`
+        // ))
 
-      $(`#treatmentBtn${treatments[i]["id"]}`).click(function(e){
-        
-            treatmentsCart.push([treatments[i]['name'], treatments[i]['price']])
-        console.log(treatmentsCart)
-    }
-      )
+      });
     }
   }
-  
 
   const fragment = $(new DocumentFragment());
   const h1 = $("<h1>Treatments</h1>");

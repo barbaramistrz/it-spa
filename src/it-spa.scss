@@ -1,3 +1,6 @@
+$break-small: 820px;
+$break-large: 1200px;
+
 
 body{
     background-image: url(https://images.unsplash.com/photo-1517646450441-a0faf4152caf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1634&q=80);
@@ -19,7 +22,6 @@ h1{
     position: absolute;
     top: 30%;
     z-index: 1;
-    text-transform: uppercase;
 }
 
 .list-group-item.active{
@@ -39,5 +41,16 @@ h1{
 #cart-icon{
     max-width: 35px;
     align-self: right;
+    filter: invert(94%) sepia(6%) saturate(0%) hue-rotate(20deg) brightness(105%) contrast(106%);
     margin-right: 20px;
+}
+
+
+table{
+    max-width: 900px;
+  
+}
+
+.input-date{
+    margin: 5px;
 }
