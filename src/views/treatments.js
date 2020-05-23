@@ -47,8 +47,6 @@ export const treatments = () => {
       $(`#treatmentBtn${treatments[i]["id"]}`).on("click", function (e) {
         e.preventDefault();
         book(treatments[i]["name"], treatments[i]["price"]);
-        // $(`#bookT-${treatments[i]["id"]}`).append($(`<img src='https://image.flaticon.com/icons/svg/2649/2649220.svg' href="/bookings" class="img-responsive icon">`
-        // ))
 
       });
     }

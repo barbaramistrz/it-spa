@@ -3,7 +3,7 @@
   "rooms": [
     {
       "id": 1,
-      "name": "Lovely Single",
+      "name": "Lovely Single Room",
       "photo": "https://images.unsplash.com/photo-1584116831190-7a5b2765a30a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 1,
       "guests": 1,
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "Romantic Double",
+      "name": "Romantic Double Room",
       "photo": "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 1,
       "guests": 2,
@@ -19,7 +19,7 @@
     },
     {
       "id": 3,
-      "name": "Fun Triple",
+      "name": "Fun Triple Room",
       "photo": "https://images.unsplash.com/photo-1507038772120-7fff76f79d79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 2,
       "guests": 3,
@@ -27,7 +27,7 @@
     },
     {
       "id": 4,
-      "name": "Luxurious Quad",
+      "name": "Luxurious Quad Room",
       "photo": "https://images.unsplash.com/photo-1519449556851-5720b33024e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=350&q=80",
       "beds": 2,
       "guests": 4,

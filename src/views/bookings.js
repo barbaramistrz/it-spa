@@ -23,6 +23,7 @@ export const bookings = () => {
    });
     console.log(cartPreview);
 
+
     const countedCart = {};
     cartPreview.forEach(function (obj) {
       const key = [obj.name, obj.price];
@@ -42,12 +43,24 @@ final.push(obj.price)    });
     for (let things in countedCart) {
       const nameAndPrice = things.split(",");
       console.log(nameAndPrice);
-      // let thisItem = {
-      //     name: nameAndPrice[0],
-      //     price: nameAndPrice[1]*1,
-      // }
+if(nameAndPrice[0].includes("Room")){
+  const roomArr = cartPreview.filter(room => room.name == nameAndPrice[0]);
+const room = roomArr[0];
+const nicerDates = `${room["bookedDates"][0].split("-").reverse().join(".")} - ${room["bookedDates"][1].split("-").reverse().join(".")}`
+  $("#roomsHere").append(
+    $(
+      `<tr>
+        <td>${room["name"]}, ${nicerDates}
+        </td>
+        <td id="td-${nameAndPrice[1]}"> ${nameAndPrice[1]} euros</td>
+        <td>
+        <button class="btn btn-secondary btn-sm remove-btn" id="remove-${nameAndPrice[1]}">X</button> 
+        </td>
+        </tr>`
+    )
+  );
+} else {
 
-      $("#here").append(
         $(
           `<tr>
             <td>${nameAndPrice[0]}
@@ -59,17 +72,17 @@ final.push(obj.price)    });
             <button class="btn btn-secondary btn-sm add-btn" id="book-${nameAndPrice[1]}">+</button>
             </td>
             </tr>`
-        )
-      );
-      $(`#remove-${nameAndPrice[1]}`).on("click", function (e) {
-        e.preventDefault();
-        remove(nameAndPrice[0], nameAndPrice[1] * 1);
-      });
-      $(`#book-${nameAndPrice[1]}`).on("click", function (e) {
-        e.preventDefault();
-        book(nameAndPrice[0], nameAndPrice[1] * 1);
-      });
- 
+        
+      ).appendTo($("#here"))
+   ;}
+   $(`#remove-${nameAndPrice[1]}`).on("click", function (e) {
+    e.preventDefault();
+    remove(nameAndPrice[0]);
+  });
+  $(`#book-${nameAndPrice[1]}`).on("click", function (e) {
+    e.preventDefault();
+    book(nameAndPrice[0], nameAndPrice[1] * 1);
+  })
 
     };
     $("#total").html(
@@ -87,6 +100,7 @@ final.push(obj.price)    });
 
   const h1 = $("<h1>Bookings</h1>");
   const booking = $(`<table class="table table-hover mx-auto">
+
   <thead>
     <tr>
       <th scope="col">Treatment</th>
@@ -95,6 +109,14 @@ final.push(obj.price)    });
     </tr>
   </thead>
   <tbody class="here" id="here">
+  <thead>
+  <tr>
+    <th scope="col">Booked Room</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+</thead>
+<tbody class="roomsHere" id="roomsHere">
 <tfoot id="total">
 </tfoot>
 </tr>
@@ -113,22 +135,29 @@ export function book(itemName, itemPrice) {
   cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem])
   console.log(cartItem);
   $("#here").empty();
+  $("#roomsHere").empty();
+
 bookings()
 }
 
- function remove(itemName, itemPrice) {
-  let cartItem = { name: itemName, price: itemPrice };
+ function remove(itemName) {
+  let cartItem = { name: itemName };
   console.log(cartItem);
+  console.log("removing")
   cart.remove(cartItem);
   $("#here").empty();
+  $("#roomsHere").empty();
+
   bookings();
 }
 
 export function bookRoom(dates, roomName, roomPrice){
-  let cartItem = { bookedDates:[dates[0], dates[1]], days: dates[2], name: roomName, price: roomPrice };
+  let cartItem = { bookedDates:[dates[0], dates[1]], days: dates[2], name: roomName, price: roomPrice*dates[2] };
   cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem])
   console.log(cartItem);
   $("#here").empty();
+  $("#roomsHere").empty();
+
 bookings()
 }
 

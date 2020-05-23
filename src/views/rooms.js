@@ -18,25 +18,22 @@ export const rooms = () => {
     for (let i = 0; i < rooms.length; i++) {
       $("#rooms").append(
         $(
-          `<div class='card' style='max-width:100%; margin:5px' id='${
-            rooms[i]["id"]
-          }'>
-        <img class='card-img-top responsive' width = "100%" height=230 src="${
-          rooms[i]["photo"]
-        }" />
+          `<div class='card' style='max-width:100%; margin:5px' id='${rooms[i]["id"]}'>
+        <img class='card-img-top responsive' width = "100%" height=230 src="${rooms[i]["photo"]}" />
        <div class="card-body flex">       
         <h3 class="card-title">${rooms[i]["name"]}</h3>
         <p class='card-text'>Number of beds: <b>${rooms[i]["beds"]}</b></p>
         <p class='card-text'>Number of guests: <b>${rooms[i]["guests"]}</b></p>
         <p class='card-text'>Price: ${rooms[i]["price"]} euros</p>
-        <button href="#" class="btn btn-outline-secondary" type="submit" id='roomBtn${rooms[i]["id"]}'}>Book</button>
+        <input class="btn btn-outline-secondary " type="submit" id='roomBtn${rooms[i]["id"]}'} value="Book"/>
         </div></div>`
         )
       );
 
       $(`#roomBtn${rooms[i]["id"]}`).on("click", function (e) {
         e.preventDefault();
-        bookRoom(dates, rooms[i]["name"], rooms[i]["price"]);
+        if($("#start-date").val() == "" || $("#end-date").val() == ""){alert("Select dates first!")}
+        else{ bookRoom(dates, rooms[i]["name"], rooms[i]["price"]);}
   });
     }
     let dates = [];
@@ -60,6 +57,7 @@ export const rooms = () => {
       .change(function () {
         dates[1] = $(this).val();
         dates[2] = calculateDays(dates[0], dates[1]);
+        console.log($("#end-date").val())
       });
 
     
@@ -72,12 +70,11 @@ export const rooms = () => {
   const roomCards = $(
     `<form class="flex-container form-inline" style="display:flex; flex-wrap:wrap; justify-content:center">
    <div class="form-row" style="display:flex; flex-wrap:wrap; justify-content:center" id="dates">
-    <label>Arrival date:</label><input id="start-date" class="input-date form-control" min="${
-      new Date().toISOString().split("T")[0]
-    }" type="date" required>
-    <label>Departure date:</label><input id="end-date"  class="input-date form-control" type="date" required disabled>
+    <label>Arrival date:</label><input type="date" id="start-date" required class="input-date form-control" min="${new Date().toISOString().split("T")[0]}"  >
+    <label>Departure date:</label><input type="date" id="end-date" required class="input-date form-control"   disabled>
     </div>
-    <div class="flex-container" id="rooms" style="display:flex; flex-wrap:wrap; justify-content:center"></div>
+    <div class="flex-container" id="rooms" style="display:flex; flex-wrap:wrap; justify-content:center">
+    </div>
     </form>`
   );
 
