@@ -42,7 +42,7 @@ h1{
     max-width: 35px;
     align-self: right;
     filter: invert(94%) sepia(6%) saturate(0%) hue-rotate(20deg) brightness(105%) contrast(106%);
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 
@@ -53,4 +53,9 @@ table{
 
 .input-date{
     margin: 5px;
+}
+
+.popover{
+    max-width: 100%;
+    min-width: 370px;
 }

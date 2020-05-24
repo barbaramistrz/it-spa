@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 
 export const home = () => {
+   
     const fragment = $(new DocumentFragment());
     
 

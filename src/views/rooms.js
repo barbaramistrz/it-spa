@@ -15,6 +15,8 @@ export const rooms = () => {
     });
 
   function main(rooms) {
+
+    
     for (let i = 0; i < rooms.length; i++) {
       $("#rooms").append(
         $(

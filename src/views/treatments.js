@@ -15,6 +15,8 @@ export const treatments = () => {
     });
 
   function main(treatments) {
+
+    
     for (let i = 0; i < treatments.length; i++) {
       $("#list-tab").append(
         $(
