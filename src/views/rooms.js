@@ -27,7 +27,10 @@ export const rooms = () => {
         <p class='card-text'>Number of beds: <b>${rooms[i]["beds"]}</b></p>
         <p class='card-text'>Number of guests: <b>${rooms[i]["guests"]}</b></p>
         <p class='card-text'>Price: ${rooms[i]["price"]} euros</p>
+        <div class="bookBtn" style="display:flex; flex-wrap:wrap">
         <input class="btn btn-outline-secondary " type="submit" id='roomBtn${rooms[i]["id"]}'} value="Book"/>
+        <div class="added bookedRoom${rooms[i]["guests"]}"></div>
+        </div>
         </div></div>`
         )
       );
@@ -35,7 +38,12 @@ export const rooms = () => {
       $(`#roomBtn${rooms[i]["id"]}`).on("click", function (e) {
         e.preventDefault();
         if($("#start-date").val() == "" || $("#end-date").val() == ""){alert("Select dates first!")}
-        else{ bookRoom(dates, rooms[i]["name"], rooms[i]["price"]);}
+        else{ bookRoom(dates, rooms[i]["name"], rooms[i]["price"]);
+        $(`#roomBtn${rooms[i]["id"]}`).prop("disabled", true)
+        $(`.bookedRoom${rooms[i]["guests"]}`).append($("<img id='booked' src='https://image.flaticon.com/icons/svg/2649/2649220.svg' alt='Room booked!' style='max-height:40px'>"))
+        setTimeout(function(){$(`.bookedRoom${rooms[i]["guests"]}`).empty(); $(`#roomBtn${rooms[i]["id"]}`).prop("disabled", false)
+      }, 900)}
+  
   });
     }
     let dates = [];

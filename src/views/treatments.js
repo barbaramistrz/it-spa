@@ -30,16 +30,15 @@ export const treatments = () => {
         <p>Price: ${treatments[i]["price"]} euros</p>
         <p>Time: ${treatments[i]["time"]} minutes</p>
         <br>
-        <div id="bookT-${treatments[i]["id"]}">
+        <div id="bookT-${treatments[i]["id"]}" style="display:flex; flex-wrap:wrap;">
         <button class="btn btn-secondary btn-lg book-btn" id='treatmentBtn${treatments[i]["id"]}'>Book</button>
-        <div>
+        <span class="booked added"></span>
         </div>`)
       );
 
       $(`#list-1-list`).addClass("active ");
       $(`#list-1`).addClass("active ");
 
-      
 
       $(`#list-${treatments[i]["id"]}-list`).on("click", function (e) {
         e.preventDefault();
@@ -49,6 +48,10 @@ export const treatments = () => {
       $(`#treatmentBtn${treatments[i]["id"]}`).on("click", function (e) {
         e.preventDefault();
         book(treatments[i]["name"], treatments[i]["price"]);
+        $(`#treatmentBtn${treatments[i]["id"]}`).prop("disabled", true);
+        $(`.booked`).append($("<img id='booked' src='https://image.flaticon.com/icons/svg/2649/2649220.svg' alt='Item booked!' style='max-height:50px'>"))
+        setTimeout(function(){$(`.booked`).empty(); $(`#treatmentBtn${treatments[i]["id"]}`).prop("disabled", false)
+      }, 900)
 
       });
     }
@@ -72,3 +75,5 @@ export const treatments = () => {
 
   return fragment;
 };
+
+

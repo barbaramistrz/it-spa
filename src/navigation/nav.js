@@ -2,7 +2,6 @@ import $ from "jquery";
 import { routes } from "../router/routes";
 import { navItem } from "./nav-item";
 import { bookings } from "../views";
-// import { cartPreview} from '../views/treatments';
 
 export const nav = () => {
 

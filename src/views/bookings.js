@@ -17,13 +17,17 @@ export const bookings = () => {
       console.log(error);
     });
 
+    
   function main(rooms) {
-  
+    let cart = new Cart();
+if(cart.get()!== undefined){
     const cookiesCart = cart.getItSpaCart();
+    
     const cartPreview = cookiesCart.sort(function (a, b) {
       return a.name.localeCompare(b.name);
     });
-
+    console.log(cartPreview);
+ 
     const countedCart = {};
     cartPreview.forEach(function (obj) {
       const key = [obj.name, obj.price];
@@ -42,7 +46,6 @@ export const bookings = () => {
   
     for (let things in countedCart) {
       const nameAndPrice = things.split(",");
-      console.log(nameAndPrice);
       if (nameAndPrice[0].includes("Room")) {
         const roomArr = cartPreview.filter((room) => room.name == nameAndPrice[0]);
         const room = roomArr[0];
@@ -92,7 +95,7 @@ export const bookings = () => {
         </tr>
       </>`
       )
-    );
+    );}
   }
 
   const fragment = $(new DocumentFragment());
@@ -132,14 +135,12 @@ let cart = new Cart();
 
 export function book(itemName, itemPrice) {
   let cartItem = { name: itemName, price: itemPrice };
-  cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem]);
-  console.log(cartItem);
+  cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem])
   $(".here, .roomsHere").empty();
   $(".navhere, .navroomsHere").empty();
   
 //   document.getElementById("cart-icon").src="https://image.flaticon.com/icons/svg/2649/2649220.svg";
-//   setTimeout(function(){ document.getElementById("cart-icon").src="ttps://image.flaticon.com/icons/svg/2649/2649386.svg";
-// }, 5000);
+
 // document.getElementById("cart-icon").src="https://image.flaticon.com/icons/svg/2649/2649220.svg";
 
 
@@ -148,7 +149,6 @@ export function book(itemName, itemPrice) {
 
 export function remove(itemName) {
   let cartItem = { name: itemName };
-  console.log(cartItem);
   cart.remove(cartItem);
   $(".here").empty();
   $(".roomsHere").empty();
@@ -164,8 +164,7 @@ export function bookRoom(dates, roomName, roomPrice) {
     name: roomName,
     price: roomPrice * dates[2],
   };
-  cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem]);
-  console.log(cartItem);
+  cart.exists() ? cart.add(cartItem) : cart.setItSpaCart([cartItem])
   $(".here").empty();
   $(".roomsHere").empty();
   $(".navhere, .navroomsHere").empty();
