@@ -11,15 +11,21 @@ export const nav = () => {
 
   const fragment = $(new DocumentFragment());
   const navBar = $(`
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <span class="navbar-brand">IT SPA</span>
-    <ul class="navbar-nav mr-auto"></ul>
-    <input type="image" id='cart-icon' src='https://image.flaticon.com/icons/svg/2649/2649220.svg' data-toggle="popover" role="popover" data-html="true" data-placement="left"
-    >
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="position:absolute; right:5px; top:10px">
+    <span class="navbar-toggler-icon" ></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav"></ul>
+
+    </div>
+    <input type="image" id='cart-icon' src='https://image.flaticon.com/icons/svg/2649/2649386.svg' data-toggle="popover" role="popover"  data-trigger="click" data-html="true" data-placement="bottom">
+
 </nav>
     `);
-
- 
+    // alternative https://image.flaticon.com/icons/svg/2649/2649220.svg
   const navBarItems = routes.map((route) => navItem(route));
 
 

@@ -136,6 +136,13 @@ export function book(itemName, itemPrice) {
   console.log(cartItem);
   $(".here, .roomsHere").empty();
   $(".navhere, .navroomsHere").empty();
+  
+//   document.getElementById("cart-icon").src="https://image.flaticon.com/icons/svg/2649/2649220.svg";
+//   setTimeout(function(){ document.getElementById("cart-icon").src="ttps://image.flaticon.com/icons/svg/2649/2649386.svg";
+// }, 5000);
+// document.getElementById("cart-icon").src="https://image.flaticon.com/icons/svg/2649/2649220.svg";
+
+
   bookings();
 }
 
@@ -162,6 +169,7 @@ export function bookRoom(dates, roomName, roomPrice) {
   $(".here").empty();
   $(".roomsHere").empty();
   $(".navhere, .navroomsHere").empty();
+ 
 
   bookings();
 

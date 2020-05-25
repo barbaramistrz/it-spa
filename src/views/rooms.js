@@ -21,7 +21,7 @@ export const rooms = () => {
       $("#rooms").append(
         $(
           `<div class='card' style='max-width:100%; margin:5px' id='${rooms[i]["id"]}'>
-        <img class='card-img-top responsive' width = "100%" height=230 src="${rooms[i]["photo"]}" />
+        <img class='card-img-top responsive' width = "100%" height=230 src="${rooms[i]["photo"]}" alt="Random photo of a hotel room from Unsplash" />
        <div class="card-body flex">       
         <h3 class="card-title">${rooms[i]["name"]}</h3>
         <p class='card-text'>Number of beds: <b>${rooms[i]["beds"]}</b></p>
