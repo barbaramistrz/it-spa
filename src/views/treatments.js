@@ -15,8 +15,6 @@ export const treatments = () => {
     });
 
   function main(treatments) {
-
-    
     for (let i = 0; i < treatments.length; i++) {
       $("#list-tab").append(
         $(
@@ -39,7 +37,6 @@ export const treatments = () => {
       $(`#list-1-list`).addClass("active ");
       $(`#list-1`).addClass("active ");
 
-
       $(`#list-${treatments[i]["id"]}-list`).on("click", function (e) {
         e.preventDefault();
         $(this).tab("show");
@@ -49,10 +46,19 @@ export const treatments = () => {
         e.preventDefault();
         book(treatments[i]["name"], treatments[i]["price"]);
         $(`#treatmentBtn${treatments[i]["id"]}`).prop("disabled", true);
-        $(`.booked`).append($("<img id='booked' src='https://image.flaticon.com/icons/svg/2649/2649220.svg' alt='Item booked!' style='max-height:50px'>"))
-        setTimeout(function(){$(`.booked`).empty(); $(`#treatmentBtn${treatments[i]["id"]}`).prop("disabled", false)
-      }, 900)
+        $(`.booked`).append(
+          $(
+            "<img id='booked' src='https://image.flaticon.com/icons/svg/2649/2649220.svg' alt='Item booked!' style='max-height:50px'>"
+          )
+        );
+        $(`#cart-icon`).prop("src", "https://image.flaticon.com/icons/svg/2649/2649220.svg");
 
+        setTimeout(function () {
+          $(`.booked`).empty();
+          $(`#treatmentBtn${treatments[i]["id"]}`).prop("disabled", false);
+          $(`#cart-icon`).prop("src", "https://image.flaticon.com/icons/svg/2649/2649386.svg")
+
+        }, 900);
       });
     }
   }
@@ -75,5 +81,3 @@ export const treatments = () => {
 
   return fragment;
 };
-
-
