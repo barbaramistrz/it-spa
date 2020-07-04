@@ -1,19 +1,20 @@
 import $ from "jquery";
 import { book } from "./bookings";
+import {database} from "../it-spa"
+import * as firebase from "firebase/app";
+import "firebase/database/"
+
 
 export const treatments = () => {
-  let roomObj = "";
-  roomObj = fetch("http://localhost:3000/treatments")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      main(data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-
+ 
+  
+console.log(database)
+const treatmentsData = []
+database.ref('treatments').once('value').then((snapshot) => { 
+  treatmentsData.push(snapshot.val())
+console.log(treatmentsData);
+main(snapshot.val())
+});
   function main(treatments) {
     for (let i = 0; i < treatments.length; i++) {
       $("#list-tab").append(

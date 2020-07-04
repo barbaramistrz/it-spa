@@ -1,22 +1,16 @@
 import $ from "jquery";
 import { Cart } from "./../cart/cart";
-import { nav } from "./../navigation/nav";
+import * as firebase from "firebase/app";
+import {database} from "../it-spa";
+
 
 export const bookings = () => {
-  let roomObj = "";
   let cart = new Cart();
 
-  roomObj = fetch("http://localhost:3000/rooms")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      main(data);
-    })
-    .catch(function (error) {
-      console.log(error);
+  database.ref('rooms').once('value').then((snapshot) => { 
+    console.log(snapshot.val());
+    main(snapshot.val())
     });
-
     
   function main(rooms) {
     let cart = new Cart();
